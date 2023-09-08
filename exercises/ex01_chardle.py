@@ -1,4 +1,4 @@
-"""EX01 - Chardle"""
+"""EX01 - Chardle."""
 
 __author__ = "730659396"
 
@@ -20,7 +20,7 @@ num_matches: int = 0
 index: int = 0
 for letter in word:
     if character == letter:
-        print(character, "found at index", index )
+        print(character, "found at index", index)
         num_matches += 1
     index += 1
 
@@ -28,6 +28,6 @@ for letter in word:
 if num_matches > 1:
     print(num_matches, "instances of", character, "found in", word)
 elif num_matches == 1:
-    print(num_matches, "instance of", character, "in", word)
+    print(num_matches, "instance of", character, "found in", word)
 elif num_matches == 0:
     print("No instances of", character, "found in", word)
