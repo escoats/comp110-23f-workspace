@@ -1,9 +1,9 @@
-"""EX02: One-Shot Wordle"""
+"""EX02: One-Shot Wordle."""
 
-__author__: "730659395"
+__author__ = "730659395"
 
-word = "python"
-guess = input(f"What is your {len(word)}-letter guess? ")
+word: str = "python"
+guess: str = input(f"What is your {len(word)}-letter guess? ")
 
 while len(guess) != len(word):
     guess = input(f"That was not {len(word)} letters! Try again: ")
