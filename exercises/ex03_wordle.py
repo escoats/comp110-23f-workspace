@@ -23,7 +23,7 @@ def emojified(guess: str, secret: str) -> str:
     GREEN_BOX: str = "\U0001F7E9"
     YELLOW_BOX: str = "\U0001F7E8"
     WHITE_BOX: str = "\U00002B1C"
-   
+
     while i < len(secret):
         char_present: bool = contains_char(secret, guess[i])
         # Character is found somewhere in the word
@@ -41,7 +41,7 @@ def emojified(guess: str, secret: str) -> str:
 
 def input_guess(expected_length: int) -> str:
     """Recieves the length of the secret word and asks the user to guess a word. Returns the guessed word."""
-    guess: str = input(f"Input a {str(expected_length)}-character word: ")
+    guess: str = input(f"Enter a {str(expected_length)} character word: ")
     # Guess is the right length
     if len(guess) == expected_length:
         return guess
@@ -65,12 +65,11 @@ def main() -> None:
         print(display)
         # Checks if player has won
         if guess == secret:
-            print("You won!")
+            print(f"You won in {turn_num}/6 turns!")
             playing = False
         # Checks if player has lost
         if turn_num == 6:
             print("X/6 - Sorry, try again tomorrow!")
-            exit()
         turn_num += 1
 
 
