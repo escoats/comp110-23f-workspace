@@ -37,7 +37,7 @@ def is_equal(list1: list[int], list2: list[int]) -> bool:
         return False
    
     # If this point is reached, lists are equal length.
-    idx = 0
+    idx: int = 0
     while idx < len(list1):
         if list1[idx] != list2[idx]:
             return False
