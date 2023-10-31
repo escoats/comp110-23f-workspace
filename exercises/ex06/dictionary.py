@@ -67,6 +67,3 @@ def update_attendance(attendance: dict[str, list[str]], day: str, student: str) 
     elif day in attendance:
         attendance[day].append(student)
     return attendance
-
-
-print()
