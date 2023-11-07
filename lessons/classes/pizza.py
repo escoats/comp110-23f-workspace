@@ -22,7 +22,7 @@ class Pizza:
         self.size = size_input
         self.toppings = toppings_input
         self.gluten_free = gluten_free_input
-        # returns self?????????
+        # returns self
 
     def price(self) -> float:
         """Method to compute price of pizza"""
@@ -43,3 +43,12 @@ class Pizza:
         """creates a new pizza with same attributes as the old pizza, but with num_extra extra toppings."""
         new_pizza: Pizza = Pizza(self.size, self.toppings + num_extras, self.gluten_free)
         return new_pizza
+
+    def __str__(self) -> str:
+        """The result when I call str()"""
+        pizza_info: str = f"Pizza order: {self.toppings} toppings, size {self.size}, GF: {self.gluten_free}"
+        return pizza_info
+
+pie: Pizza = Pizza("medium", 2, False)
+pie.add_toppings(2)
+print(pie) # original str() is overwritten
