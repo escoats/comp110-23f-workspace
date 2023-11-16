@@ -35,18 +35,32 @@ class Simpy:
             current_val += step
         print(self.values)
     
-    def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
-        """Returns a new Simpy object."""
+    def sum(self) -> float:
+        """Returns a sum of a Simpy's values"""
+        list_sum = sum(self.values)
+        return list_sum
+    
+    def __add__(self, rhs: float | Simpy) -> Simpy:
+        """Overloads the addition operator and returns a new Simpy object."""
         new_simpy_vals: list = []
         if type(rhs) == float:
             for i in range(0, len(self.values)):
                 new_simpy_vals.append(rhs + self.values[i])
         else:
             assert len(self.values) == len(rhs.values)
-            for i in range(0,len(rhs.values)):
-                new_value = rhs.values[i] + self.values[i]
+            for i in range(0,len(self.values)):
                 new_simpy_vals.append(rhs.values[i] + self.values[i])
         return Simpy(new_simpy_vals)
 
-    def __pow__(self, rhs: Union[float, Simpy]) -> Simpy
-    # TODO: Your constructor and methods will go here.
+    def __pow__(self, rhs: float | Simpy) -> Simpy:
+        """Overloads the power operator and returns a new Simpy object."""
+        new_simpy_vals: list = []
+        if type(rhs) == float:
+            for i in range(0, len(self.values)):
+                new_simpy_vals.append(self.values[i] ** rhs)
+        else:
+            assert len(self.values) == len(rhs.values)
+            for i in range(0, len(self.values)):
+                new_simpy_vals.append(self.values[i] ** rhs.values[i])
+        return Simpy(new_simpy_vals)
+    
