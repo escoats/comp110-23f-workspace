@@ -16,7 +16,7 @@ class Course:
         self.prerequisites = init_prereqs
     
         '''
-    def is_valid_self(self, prereq: str) -> bool:
+    def is_valid_course(self, prereq: str) -> bool:
         if (self.level >= 400) and (prereq in self.prerequisites):
             return True
         else:
@@ -25,7 +25,15 @@ class Course:
 
 def find_courses(catalog: list[Course], prereq: str) -> list[str]:
     names: list[Course] = []
-    for course in catalog:
-        if (course.level > 400) and (prereq in course.prerequisites):
-            names.append(course.name)
+    for c in catalog:
+        if (c.level > 400) and (prereq in c.prerequisites):
+            names.append(c.name)
+    return names
 
+bio: Course = Course()
+bio.prerequisites = ["chem"]
+bio.level = 500
+bio.name = "biology"
+
+print(bio.is_valid_course("chem"))
+find_courses([bio], "chem")
